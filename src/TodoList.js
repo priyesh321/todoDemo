@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import TodoItems from "./TodoItems";
 import "./TodoList.css";
-import { connect } from 'react-redux';
 
 class TodoList extends Component {
     constructor(props) {
@@ -31,23 +30,6 @@ class TodoList extends Component {
         console.log(this.state.items);
 
         e.preventDefault();
-    }
-
-    addItem(e) {
-        if (this._inputElement.value !== "") {
-            var newItem = {
-                text: this._inputElement.value,
-                key: Date.now()
-            };
-
-            this.setState((prevState) => {
-                return {
-                    items: prevState.items.concat(newItem)
-                };
-            });
-
-            this._inputElement.value = "";
-        }
     }
     deleteItem(key) {
         var filteredItems = this.state.items.filter(function (item) {
